@@ -4,9 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Title</title>
+    <title>Horoscope</title>
 </head>
 <body>
-    
+    <div id="horoscope">
+
+    </div>
+
+    <form action="/action_page.php">
+        Birthdate: <input type="text" name="birthdate"><br>
+    </form>
+
+    <button onclick="saveHoroscope">Save horoscope</button>
+    <button onclick="updateHoroscope">Update horoscope</button>
+    <button onclick="deleteHoroscope">Delete horoscope</button>
+
 </body>
 </html>
