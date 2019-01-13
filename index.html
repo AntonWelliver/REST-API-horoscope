@@ -8,16 +8,37 @@
 </head>
 <body>
     <div id="horoscope">
-
+        
     </div>
 
-    <form action="/viewHoroscope.php" method="GET">
-        Birthdate: <input type="text" name="birthdate"><br>
+    <form action="/viewHoroscope.php" method="POST">
+        Birthdate: <input type="text" id="birthDate" name="birthdate"><br>
     </form>
 
-    <button onclick="saveHoroscope">Save horoscope</button>
-    <button onclick="updateHoroscope">Update horoscope</button>
-    <button onclick="deleteHoroscope">Delete horoscope</button>
+    <button onclick="saveHoroscope()">Save horoscope</button>
+    <button onclick="updateHoroscope()">Update horoscope</button>
+    <button onclick="deleteHoroscope()">Delete horoscope</button>
 
+    <script>
+
+        var birthdayField = document.getElementById("birthDate");
+        
+        function saveHoroscope() {
+            var birthday = birthdayField.value;
+            console.log("Save pressed date " + birthday);
+            var request = new XMLHttpRequest();
+            request.open("POST", "addHoroscope.php", true);
+            request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+            request.onload = function() {
+                if(this.status == 200){
+                    console.log(this.responseText);
+                }
+            }
+            request.send("birthdate = 000930");
+        }
+
+
+    </script>
 </body>
 </html>
