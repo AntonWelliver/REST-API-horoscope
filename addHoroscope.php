@@ -28,10 +28,15 @@
 
     //Add horoscope to session
     if($okToAdd) {
-        $_SESSION['horoscope'] = getHoroscope($birthdate);
+        $_SESSION['horoscope'] = getHoroscope();
         echo "true";
     }
     else {
         echo "false";
+    }
+
+    function getHoroscope() {
+        //Test
+        return "Aquarius";
     }
 ?>
