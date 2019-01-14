@@ -48,12 +48,14 @@
 
             request.onload = function() {
                 if(this.status == 200){
+                    console.log("200 ok");
                     console.log(this.responseText);
                 }
+                horoscopeField.innerHTML = "a horoscope";
             }
             request.send();
         }
-
+        displayHoroscope();
 
     </script>
 </body>
