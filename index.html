@@ -12,7 +12,7 @@
     </div>
 
     <form action="/viewHoroscope.php" method="POST">
-        Birthdate: <input type="text" id="birthDate" name="birthdate"><br>
+        Birthdate: <input type="date" id="birthDate" name="birthdate"><br>
     </form>
 
     <button onclick="saveHoroscope()">Save horoscope</button>
@@ -39,6 +39,25 @@
             request.send("birthdate = 000930");
         }
 
+        function deleteHoroscope() {
+            console.log("Call deleteHoroscope");
+            var request = new XMLHttpRequest();
+            request.open("GET", "deleteHoroscope.php", true);
+            request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+            request.onload = function() {
+                if(this.status == 200){
+                    console.log("200 ok");
+                    console.log(this.responseText);
+                    if(this.responseText == "true") {
+                        //Horoscope successfully deleted
+                        displayHoroscope();
+                    }
+                }
+            }
+            request.send();
+        }
+
         function displayHoroscope() {
 
             console.log("Call viewHoroscope");
@@ -51,7 +70,7 @@
                     console.log("200 ok");
                     console.log(this.responseText);
                 }
-                horoscopeField.innerHTML = "a horoscope";
+                horoscopeField.innerHTML = "A Horoscope";
             }
             request.send();
         }
@@ -59,4 +78,4 @@
 
     </script>
 </body>
-</html>
+</html> 
