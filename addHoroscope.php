@@ -14,8 +14,8 @@
 
     //Check birthdate
     $birthdate = "";
-    if($okToAdd && isset($_POST['birthdate'])) {
-        $birthdate = $_POST['birthdate'];
+    if($okToAdd && isset($_POST['date'])) {
+        $birthdate = $_POST['date'];
         if(checkdate(birthdate) == false) {
             $okToAdd = false;
         }

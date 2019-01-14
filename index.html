@@ -30,13 +30,15 @@
             var request = new XMLHttpRequest();
             request.open("POST", "addHoroscope.php", true);
             request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            var parameters = "date = " + birthday.value;
+            console.log("parameters " + parameters);
 
             request.onload = function() {
                 if(this.status == 200){
                     console.log(this.responseText);
                 }
             }
-            request.send("birthdate = 000930");
+            request.send(parameters);
         }
 
         function deleteHoroscope() {
