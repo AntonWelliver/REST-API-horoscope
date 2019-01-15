@@ -41,8 +41,10 @@
                     console.log(this.responseText);
                     if(this.responseText == "true") {
                         //Horoscope successfully added
+                        console.log("Update again");
                         displayHoroscope();
                     }
+                    displayHoroscope();
                 }
             }
             request.send(parameters);
