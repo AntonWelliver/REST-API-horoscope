@@ -33,7 +33,7 @@
             var request = new XMLHttpRequest();
             request.open("POST", "addHoroscope.php", true);
             request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            var parameters = "date = " + birthday;
+            var parameters = "date=" + birthday;
             console.log("parameters " + parameters);
 
             request.onload = function() {
