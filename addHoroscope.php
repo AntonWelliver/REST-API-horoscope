@@ -33,6 +33,7 @@
     //Add horoscope to session
     if($okToAdd) {
         $_SESSION['horoscope'] = getHoroscope($birthdate);
+        echo "from Session " . $_SESSION['horoscope'];
         echo "true";
     }
     else {
@@ -41,12 +42,32 @@
 
     function getHoroscope($birthdate) {
         //Horoscope sign dates
+        define('Capricorn', '-01-19');
         define('Aquarius', '-02-18');
         define('Pisces', '-03-20');
-        
+        define('Aries', '-04-19');
+
         $dateOfBirth = date_create($birthdate);
         $year = $dateOfBirth->format("Y");
-        echo "Year" . $year;
-        return "Aquarius";
+        $birthdateSec = strtotime($birthdate);
+        $secs = $birthdateSec-strtotime($year.Capricorn);
+        echo "Seconds " . $secs;
+
+        if($birthdateSec-strtotime($year.Capricorn) < 0) {
+            echo "Capricorn";
+            return "Capricorn";
+        }
+        if($birthdateSec-strtotime($year.Aquarius) < 0) {
+            echo "Aquarius";
+            return "Aquarius";
+        }
+        if($birthdateSec-strtotime($year.Pisces) < 0) {
+            echo "Pisces";
+            return "Pisces";
+        }
+        else {
+            echo "Capricorn";
+            return "Capricorn";
+        }
     }
 ?>
