@@ -32,8 +32,7 @@
     //Add horoscope to session
     if($okToAdd) {
         $_SESSION['horoscope'] = getHoroscope();
-        $output = $_SESSION['horoscope'];
-        echo $output;
+        echo "true";
     }
     else {
         echo "false";
