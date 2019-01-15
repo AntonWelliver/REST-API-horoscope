@@ -1,4 +1,4 @@
-<!-- <?php
+<?php
     session_start();
 ?>
 <!DOCTYPE html>
@@ -88,4 +88,4 @@
 
     </script>
 </body>
-</html>  -->
+</html> 

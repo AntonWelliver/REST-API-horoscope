@@ -1,4 +1,7 @@
 <?php
+    session_start();
+?>
+<?php
 
     /*header('Access-Control-Allow-Origin : *');
     header('Content-Type: application/x-www-form-urlencoded');
@@ -29,7 +32,8 @@
     //Add horoscope to session
     if($okToAdd) {
         $_SESSION['horoscope'] = getHoroscope();
-        echo "true";
+        $output = $_SESSION['horoscope'];
+        echo $output;
     }
     else {
         echo "false";

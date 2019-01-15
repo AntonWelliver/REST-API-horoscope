@@ -1,8 +1,10 @@
 <?php
+    session_start();
+?>
+<?php
 
 //Check GET function
     if($_SERVER['REQUEST_METHOD'] == 'GET') {
-        session_start();
         if(isset($_SESSION['horoscope'])) {
             $horoscope = $_SESSION['horoscope'];
             echo $horoscope;
