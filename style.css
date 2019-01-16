@@ -1,0 +1,29 @@
+body {
+    background-color: aqua;
+}
+
+#contentContainer {
+    text-align: center;
+}
+
+#horoscope {
+    text-align: center;
+    
+}
+
+#dateForm {
+    text-align: center;
+    padding: 2em;
+}
+
+#updateButton {
+    margin: 1em;
+}
+
+.no-display {
+    display: none;
+}
+
+.re-display {
+    display: initial;
+}
