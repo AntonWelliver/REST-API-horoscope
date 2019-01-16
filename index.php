@@ -133,6 +133,13 @@
                     console.log(this.responseText);
                 }
                 horoscopeField.innerHTML = this.responseText;
+                
+                if(this.responseText == "") {
+                    deleteButtonStyle();
+                }
+                else {
+                    updateButtonStyle();
+                }
             }
             request.send();
         }

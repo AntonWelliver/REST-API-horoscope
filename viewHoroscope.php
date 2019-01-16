@@ -9,7 +9,7 @@
             $horoscope = $_SESSION['horoscope'];
             echo $horoscope;
         } else{
-            echo "no horoscope set";
+            echo "";
         }
     }
 
