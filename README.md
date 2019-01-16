@@ -36,3 +36,13 @@ It's only possible to update a horoscope if there is a horoscope saved to the se
 * Sample response:
 
 Succesfull update, response "true". Unsuccesfull update, response "false".
+
+* To delete the horoscope:
+
+DELETE request to /REST-API-horoscope/deleteHoroscope.php
+
+It's only possible to delete the horoscope if there is a horoscope saved to the server.
+
+* Sample response:
+
+Succesfull delete, response "true". Unsuccesfull delete, response "
