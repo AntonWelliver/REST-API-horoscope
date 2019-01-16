@@ -103,21 +103,21 @@
         }
 
         function saveButtonStyle() {
-            saveButton.className("no-display");
-            updateButton.className("re-display");
-            deleteButton.className("re-display");
+            saveButton.className = "no-display";
+            updateButton.className = "re-display";
+            deleteButton.className = "re-display";
         }
         
         function updateButtonStyle() {
-            saveButton.className("no-display");
-            updateButton.className("re-display");
-            deleteButton.className("re-display");
+            saveButton.className = "no-display";
+            updateButton.className = "re-display";
+            deleteButton.className = "re-display";
         }
 
         function deleteButtonStyle() {
-            saveButton.className("re-display");
-            updateButton.className("no-display");
-            deleteButton.className("no-display");
+            saveButton.className = "re-display";
+            updateButton.className = "no-display";
+            deleteButton.className = "no-display";
         }
 
         function displayHoroscope() {
