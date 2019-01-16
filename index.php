@@ -37,60 +37,61 @@
 
         function saveHoroscope() {
             var birthday = birthdayField.value;
-            console.log("Save pressed date " + birthday);
             var request = new XMLHttpRequest();
             request.open("POST", "addHoroscope.php", true);
             request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             var parameters = "date=" + birthday;
-            console.log("parameters " + parameters);
 
             request.onload = function() {
                 if(this.status == 200){
-                    console.log("response: " + this.responseText);
                     if(this.responseText == "true") {
                         //Horoscope successfully added.
-                        console.log("Update again");
                         displayHoroscope();
                         saveButtonStyle();
                     }
                 }
+                else {
+                    console.log("Error in request " + this.status);
+                }
+            }
+            request.onerror = function() {
+                console.log("Request failure");
             }
             request.send(parameters);
         }
 
         function updateHoroscope() {
             var birthday = birthdayField.value;
-            console.log("Update pressed date " + birthday);
             var request = new XMLHttpRequest();
             request.open("PUT", "updateHoroscope.php", true);
             request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             var parameters = "date=" + birthday;
-            console.log("parameters " + parameters);
 
             request.onload = function() {
                 if(this.status == 200){
-                    console.log("update response: " + this.responseText);
                     if(this.responseText == "true") {
                         //Horoscope successfully added.
-                        console.log("Update again");
                         displayHoroscope();
                         updateButtonStyle();
                     }
                 }
+                else {
+                    console.log("Error in request " + this.status);
+                }
+            }
+            request.onerror = function() {
+                console.log("Request failure");
             }
             request.send(parameters);
         }
 
         function deleteHoroscope() {
-            console.log("Call deleteHoroscope");
             var request = new XMLHttpRequest();
             request.open("DELETE", "deleteHoroscope.php", true);
             request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
             request.onload = function() {
                 if(this.status == 200){
-                    console.log("200 ok");
-                    console.log(this.responseText);
                     displayHoroscope();
                     if(this.responseText == "true") {
                         //Horoscope successfully deleted.
@@ -98,6 +99,12 @@
                         deleteButtonStyle();
                     }
                 }
+                else {
+                    console.log("Error in request " + this.status);
+                }
+            }
+            request.onerror = function() {
+                console.log("Request failure");
             }
             request.send();
         }
@@ -122,24 +129,26 @@
 
         function displayHoroscope() {
 
-            console.log("Call viewHoroscope");
             var request = new XMLHttpRequest();
             request.open("GET", "viewHoroscope.php", true);
             request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
             request.onload = function() {
                 if(this.status == 200){
-                    console.log("200 ok");
-                    console.log(this.responseText);
-                }
-                horoscopeField.innerHTML = this.responseText;
-                
-                if(this.responseText == "") {
-                    deleteButtonStyle();
+                    horoscopeField.innerHTML = this.responseText;
+                    if(this.responseText == "") {
+                        deleteButtonStyle();
+                    }
+                    else {
+                        updateButtonStyle();
+                    }
                 }
                 else {
-                    updateButtonStyle();
-                }
+                    console.log("Error in request " + this.status);
+                } 
+            }
+            request.onerror = function() {
+                console.log("Request failure");
             }
             request.send();
         }

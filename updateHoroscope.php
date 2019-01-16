@@ -19,9 +19,10 @@ if($_SERVER['REQUEST_METHOD'] != 'PUT') {
 $birthdate = "";
 if($okToUpdate && isset($_PUT['date'])) {
     $birthdate = $_PUT['date'];
-/*         if(checkdate($birthdate) == false) {
+    //Check that it is possible to convert datestring to timestamp. 
+    if(strtotime($birthdate) == false) {
         $okToUpdate = false;
-    } */
+    }
 }
 
 //Check that $_SESSION is set.
