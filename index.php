@@ -127,7 +127,23 @@
             deleteButton.className = "no-display";
         }
 
+        //Fetch version.
         function displayHoroscope() {
+            fetch("viewHoroscope.php")
+            .then((response) => response.text())
+            .then((data) => {
+                horoscopeField.innerHTML = data;
+                if(data == "") {
+                        deleteButtonStyle();
+                    }
+                    else {
+                        updateButtonStyle();
+                    }
+            })
+            .catch((err) => console.log(err))
+        }
+        //Ajax version.
+        function displayHoroscope_ajax() {
 
             var request = new XMLHttpRequest();
             request.open("GET", "viewHoroscope.php", true);
