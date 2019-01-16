@@ -49,6 +49,28 @@
             request.send(parameters);
         }
 
+        function updateHoroscope() {
+            var birthday = birthdayField.value;
+            console.log("Update pressed date " + birthday);
+            var request = new XMLHttpRequest();
+            request.open("PUT", "updateHoroscope.php", true);
+            request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            var parameters = "date=" + birthday;
+            console.log("parameters " + parameters);
+
+            request.onload = function() {
+                if(this.status == 200){
+                    console.log("update response: " + this.responseText);
+                    if(this.responseText == "true") {
+                        //Horoscope successfully added.
+                        console.log("Update again");
+                        displayHoroscope();
+                    }
+                }
+            }
+            request.send(parameters);
+        }
+
         function deleteHoroscope() {
             console.log("Call deleteHoroscope");
             var request = new XMLHttpRequest();
