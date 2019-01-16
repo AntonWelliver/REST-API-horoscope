@@ -23,3 +23,16 @@ It's only possible to add a horoscope if there is no previous horoscope saved to
 
 Succesfull add, response "true". Unsuccesfull add, response "false".
 
+To update horoscope:
+
+PUT request to /REST-API-horoscope/updateHoroscope.php
+
+* Parameters:
+
+"date" = birthdate (valid date format:"YYYY-MM-DD")
+
+It's only possible to update a horoscope if there is a horoscope saved to the server.
+
+* Sample response:
+
+Succesfull update, response "true". Unsuccesfull update, response "false".
