@@ -38,13 +38,13 @@
 
             request.onload = function() {
                 if(this.status == 200){
-                    console.log(this.responseText);
+                    console.log("response: " + this.responseText);
                     if(this.responseText == "true") {
                         //Horoscope successfully added
                         console.log("Update again");
                         displayHoroscope();
                     }
-                    displayHoroscope();
+                    //displayHoroscope();
                 }
             }
             request.send(parameters);

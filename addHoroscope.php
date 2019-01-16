@@ -19,7 +19,6 @@
     $birthdate = "";
     if($okToAdd && isset($_POST['date'])) {
         $birthdate = $_POST['date'];
-        echo $_POST['date'];
 /*         if(checkdate($birthdate) == false) {
             $okToAdd = false;
         } */
@@ -33,7 +32,6 @@
     //Add horoscope to session
     if($okToAdd) {
         $_SESSION['horoscope'] = getHoroscope($birthdate);
-        echo "from Session " . $_SESSION['horoscope'];
         echo "true";
     }
     else {
@@ -51,14 +49,12 @@
         $year = $dateOfBirth->format("Y");
         $birthdateSec = strtotime($birthdate);
         $secs = $birthdateSec-strtotime($year.Capricorn);
-        echo "Seconds " . $secs;
 
         if($birthdateSec-strtotime($year.Capricorn) < 0) {
             echo "Capricorn";
             return "Capricorn";
         }
         if($birthdateSec-strtotime($year.Aquarius) < 0) {
-            echo "Aquarius";
             return "Aquarius";
         }
         if($birthdateSec-strtotime($year.Pisces) < 0) {
