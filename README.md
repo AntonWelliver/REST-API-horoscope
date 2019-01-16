@@ -16,3 +16,10 @@ POST request to /REST-API-horoscope/addHoroscope.php
 * Parameters:
 
 "date" = birthdate (valid date format:"YYYY-MM-DD")
+
+It's only possible to add a horoscope if there is no previous horoscope saved to the server.
+
+* Sample Response:
+
+Succesfull add, response "true". Unsuccesfull add, response "false".
+
