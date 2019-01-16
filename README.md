@@ -8,3 +8,11 @@ GET request to /REST-API-horoscope/viewHoroscope.php
 * Sample Response:
 
 "Aquarius"
+
+* To save horoscope:
+
+POST request to /REST-API-horoscope/addHoroscope.php
+
+* Parameters:
+
+"date" = birthdate (valid date format:"YYYY-MM-DD")
