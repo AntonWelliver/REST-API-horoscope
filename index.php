@@ -40,11 +40,10 @@
                 if(this.status == 200){
                     console.log("response: " + this.responseText);
                     if(this.responseText == "true") {
-                        //Horoscope successfully added
+                        //Horoscope successfully added.
                         console.log("Update again");
                         displayHoroscope();
                     }
-                    //displayHoroscope();
                 }
             }
             request.send(parameters);
@@ -62,7 +61,7 @@
                     console.log(this.responseText);
                     displayHoroscope();
                     if(this.responseText == "true") {
-                        //Horoscope successfully deleted
+                        //Horoscope successfully deleted.
                         displayHoroscope();
                     }
                 }

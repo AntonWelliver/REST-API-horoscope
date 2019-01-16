@@ -3,19 +3,15 @@
 ?>
 <?php
 
-    /*header('Access-Control-Allow-Origin : *');
-    header('Content-Type: application/x-www-form-urlencoded');
-    header('Access-Control-Allow-Methods: POST');*/
-
     $okToAdd = true;
 
-    //Check for POST function    
+    //Check for POST function.  
     if($_SERVER['REQUEST_METHOD'] != 'POST') {
         $okToAdd = false;
         //Die??
     }
 
-    //Check birthdate
+    //Check birthdate.
     $birthdate = "";
     if($okToAdd && isset($_POST['date'])) {
         $birthdate = $_POST['date'];
@@ -24,12 +20,12 @@
         } */
     }
 
-    //Check that $_SESSION is empty
+    //Check that $_SESSION is empty.
     if(isset($_SESSION['horoscope'])) {
         $okToAdd = false;
     }
 
-    //Add horoscope to session
+    //Add horoscope to session.
     if($okToAdd) {
         $_SESSION['horoscope'] = getHoroscope($birthdate);
         echo "true";
@@ -39,7 +35,7 @@
     }
 
     function getHoroscope($birthdate) {
-        //Horoscope sign dates
+        //Horoscope sign dates.
         define('Capricorn', '-01-19');
         define('Aquarius', '-02-18');
         define('Pisces', '-03-20');
@@ -53,13 +49,16 @@
         define('Scorpio', '-11-21');
         define('Sagittarius', '-12-21');
 
+        //Create a date object for birthdate.
         $dateOfBirth = date_create($birthdate);
+        //Get year from date object
         $year = $dateOfBirth->format("Y");
+        //Get birthdate as timestamp in seconds.
         $birthdateSec = strtotime($birthdate);
-        $secs = $birthdateSec-strtotime($year.Capricorn);
 
+        //In sequence calculate differens between birthdate and enddate of horoscope.
+        //If differens is negative then the horoscope is selected.
         if($birthdateSec-strtotime($year.Capricorn) <= 0) {
-            echo "Capricorn";
             return "Capricorn";
         }
         if($birthdateSec-strtotime($year.Aquarius) <= 0) {

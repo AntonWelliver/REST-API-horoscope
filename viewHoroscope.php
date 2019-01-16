@@ -3,7 +3,7 @@
 ?>
 <?php
 
-//Check GET function
+//Check GET function.
     if($_SERVER['REQUEST_METHOD'] == 'GET') {
         if(isset($_SESSION['horoscope'])) {
             $horoscope = $_SESSION['horoscope'];
