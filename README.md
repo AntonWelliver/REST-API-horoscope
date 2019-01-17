@@ -1,6 +1,8 @@
 # Horoscope API
 This is a REST API that I created where you can find out your own horoscope.
 
+Link to GitHub project: https://github.com/AntonWelliver/REST-API-horoscope 
+
 * To read the horoscope:
 
 GET request to /REST-API-horoscope/viewHoroscope.php
