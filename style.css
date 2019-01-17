@@ -1,5 +1,5 @@
 body {
-    background-color: aqua;
+    background-color: tan;
 }
 
 #contentContainer {
@@ -8,7 +8,6 @@ body {
 
 #horoscope {
     text-align: center;
-    
 }
 
 #dateForm {
