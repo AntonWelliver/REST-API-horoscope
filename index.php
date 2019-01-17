@@ -37,12 +37,14 @@
 
         function saveHoroscope() {
             var birthday = birthdayField.value;
+            //Create a request object for  HTTP request.
             var request = new XMLHttpRequest();
             request.open("POST", "addHoroscope.php", true);
             request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             var parameters = "date=" + birthday;
 
             request.onload = function() {
+                //HTTP request recieved.
                 if(this.status == 200){
                     if(this.responseText == "true") {
                         //Horoscope successfully added.
@@ -51,6 +53,7 @@
                     }
                 }
                 else {
+                    //Horoscope unsuccessfully added.
                     console.log("Error in request " + this.status);
                 }
             }
